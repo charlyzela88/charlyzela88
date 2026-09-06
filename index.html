@@ -1,1 +1,302 @@
 
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portafolio profesional de Yoverti Charly Suca Zela, docente y especialista en computación, redes y bases de datos." />
+  <meta name="theme-color" content="#0b1020" />
+  <title>Yoverti Charly Suca Zela | Portafolio profesional</title>
+  <style>
+    :root {
+      --bg: #080d1b;
+      --bg-soft: #101936;
+      --card: rgba(18, 29, 60, .8);
+      --text: #eef4ff;
+      --muted: #b8c4df;
+      --cyan: #3ee9e5;
+      --blue: #5e9bff;
+      --violet: #9b7bff;
+      --line: rgba(163, 190, 255, .2);
+      --shadow: 0 20px 55px rgba(0, 0, 0, .3);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 15% 10%, #193777 0, transparent 28%), radial-gradient(circle at 90% 12%, #402375 0, transparent 25%), var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 2rem)); margin: auto; }
+    .skip-link { position: absolute; left: -999px; top: 0; }
+    .skip-link:focus { left: 1rem; top: 1rem; padding: .7rem 1rem; background: #fff; color: #000; border-radius: .5rem; z-index: 99; }
+
+    nav {
+      position: sticky; top: 0; z-index: 20;
+      backdrop-filter: blur(15px);
+      background: rgba(8, 13, 27, .72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-content { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 68px; }
+    .brand { font-weight: 800; letter-spacing: .02em; text-decoration: none; }
+    .brand span { color: var(--cyan); }
+    .nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: .92rem; }
+    .nav-links a:hover, .nav-links a:focus { color: var(--cyan); }
+
+    .hero { min-height: 78vh; display: grid; place-items: center; padding: 5rem 0 3rem; }
+    .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; align-items: center; gap: 3rem; }
+    .eyebrow { color: var(--cyan); font-weight: 800; letter-spacing: .12em; text-transform: uppercase; font-size: .78rem; }
+    h1 { font-size: clamp(2.4rem, 7vw, 5.5rem); line-height: 1; margin: .6rem 0 1rem; max-width: 850px; }
+    h1 em { font-style: normal; color: var(--cyan); }
+    .lead { color: var(--muted); max-width: 680px; font-size: clamp(1.04rem, 2vw, 1.24rem); }
+    .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.7rem; }
+    .button {
+      display: inline-flex; align-items: center; gap: .5rem; padding: .78rem 1rem;
+      border-radius: .8rem; border: 1px solid var(--line); text-decoration: none; font-weight: 750;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(0, 0, 0, .24); }
+    .button.primary { color: #04111d; border-color: transparent; background: linear-gradient(120deg, var(--cyan), #94f5dd); }
+    .button.secondary { background: rgba(255,255,255,.04); }
+
+    .avatar-card, .card, .timeline-item, .skill-group, details {
+      background: var(--card); border: 1px solid var(--line); border-radius: 1.2rem; box-shadow: var(--shadow);
+    }
+    .avatar-card { padding: 1.3rem; text-align: center; }
+    .avatar {
+      width: 175px; aspect-ratio: 1; display: grid; place-items: center; margin: 0 auto 1rem;
+      border-radius: 50%; font-size: 3.5rem; font-weight: 900;
+      background: linear-gradient(135deg, var(--cyan), var(--blue) 50%, var(--violet)); color: #071326;
+      box-shadow: inset 0 0 0 7px rgba(255,255,255,.2);
+    }
+    .availability { color: var(--muted); margin: 0; }
+    .status-dot { display: inline-block; width: .6rem; height: .6rem; background: #6df1ab; border-radius: 50%; margin-right: .4rem; box-shadow: 0 0 12px #6df1ab; }
+
+    section { padding: 4.7rem 0; }
+    .section-title { margin: 0 0 .5rem; font-size: clamp(1.7rem, 3vw, 2.5rem); }
+    .section-intro { margin: 0 0 2rem; max-width: 760px; color: var(--muted); }
+    .grid { display: grid; gap: 1rem; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .card { padding: 1.35rem; }
+    .card h3 { margin-top: 0; }
+    .icon { font-size: 1.7rem; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: .6rem; padding: 0; list-style: none; }
+    .tag { padding: .38rem .7rem; border: 1px solid var(--line); border-radius: 99px; color: #dbe7ff; background: rgba(255,255,255,.04); font-size: .9rem; }
+
+    .timeline { position: relative; padding-left: 1.2rem; border-left: 2px solid var(--blue); display: grid; gap: 1rem; }
+    .timeline-item { position: relative; padding: 1.2rem 1.25rem; }
+    .timeline-item::before { content: ""; position: absolute; left: -1.65rem; top: 1.45rem; width: .8rem; height: .8rem; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 0 5px var(--bg); }
+    .date { color: var(--cyan); font-weight: 800; font-size: .88rem; }
+    .timeline-item h3 { margin: .25rem 0; }
+    .timeline-item p { margin-bottom: 0; color: var(--muted); }
+
+    .project { position: relative; overflow: hidden; }
+    .project::after { content: ""; position: absolute; inset: auto -25% -60% auto; width: 160px; height: 160px; border-radius: 50%; background: rgba(62,233,229,.13); filter: blur(4px); }
+    .project a { color: var(--cyan); font-weight: 750; text-decoration: none; }
+
+    .skill-group { padding: 1.25rem; }
+    .skill-group h3 { margin-top: 0; }
+    .meter { margin: .85rem 0; }
+    .meter-label { display: flex; justify-content: space-between; color: var(--muted); font-size: .92rem; }
+    .bar { height: .58rem; margin-top: .3rem; border-radius: 99px; background: #0a122a; overflow: hidden; }
+    .bar span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--cyan), var(--blue)); }
+
+    details { padding: 1rem 1.15rem; }
+    details + details { margin-top: .75rem; }
+    summary { cursor: pointer; font-weight: 800; }
+    details p { color: var(--muted); margin: .8rem 0 .1rem; }
+
+    .contact { text-align: center; padding: 3rem 1rem; background: linear-gradient(135deg, rgba(62,233,229,.13), rgba(155,123,255,.18)); border: 1px solid var(--line); border-radius: 1.2rem; }
+    footer { padding: 2.2rem 0; color: var(--muted); text-align: center; font-size: .92rem; }
+    .hidden { display: none !important; }
+
+    @media (max-width: 820px) {
+      .hero-grid, .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      .avatar-card { max-width: 340px; width: 100%; margin: auto; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido principal</a>
+
+  <nav aria-label="Navegación principal">
+    <div class="container nav-content">
+      <a class="brand" href="#inicio">YC<span>.</span>SZ</a>
+      <div class="nav-links">
+        <a href="#perfil">Perfil</a>
+        <a href="#trayectoria">Trayectoria</a>
+        <a href="#especialidades">Especialidades</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="contenido">
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Docencia · Tecnología · Innovación educativa</p>
+          <h1>Yoverti Charly<br><em>Suca Zela</em></h1>
+          <p class="lead">Docente y profesional del ámbito de la computación, los sistemas, las redes y las bases de datos. Comprometido con la formación tecnológica y la mejora continua de la educación superior.</p>
+          <div class="actions">
+            <a class="button primary" href="#trayectoria">Explorar trayectoria <span aria-hidden="true">↓</span></a>
+            <a class="button secondary" href="mailto:charly@tecnologicosantalucia.edu.pe">Contactar por correo <span aria-hidden="true">✉</span></a>
+          </div>
+        </div>
+        <aside class="avatar-card" aria-label="Resumen profesional">
+          <div class="avatar" aria-label="Iniciales YCSZ">YC</div>
+          <h2>Especialista en TI</h2>
+          <p class="availability"><span class="status-dot" aria-hidden="true"></span>Enfocado en educación tecnológica</p>
+          <p class="availability">Puno, Perú</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="perfil">
+      <div class="container">
+        <p class="eyebrow">Perfil</p>
+        <h2 class="section-title">Tecnología que forma oportunidades</h2>
+        <p class="section-intro">Mi trabajo integra la docencia, la aplicación de tecnologías de información y la gestión académica. Busco que cada experiencia formativa conecte los fundamentos técnicos con necesidades reales de estudiantes e instituciones.</p>
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="icon" aria-hidden="true">🎓</div>
+            <h3>Docencia tecnológica</h3>
+            <p>Desarrollo de experiencias de aprendizaje en computación, sistemas y áreas vinculadas a las tecnologías de la información.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🌐</div>
+            <h3>Redes y conectividad</h3>
+            <p>Interés profesional en redes de comunicaciones, infraestructura tecnológica y soluciones de conectividad.</p>
+          </article>
+          <article class="card">
+            <div class="icon" aria-hidden="true">🗄️</div>
+            <h3>Datos y sistemas</h3>
+            <p>Aplicación de conceptos de bases de datos, SQL y organización de información para contextos académicos y tecnológicos.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="trayectoria">
+      <div class="container">
+        <p class="eyebrow">Experiencia</p>
+        <h2 class="section-title">Trayectoria profesional</h2>
+        <p class="section-intro">Experiencia vinculada a la docencia y a los procesos académicos en institutos de educación superior tecnológica del Perú.</p>
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="date">2026</div>
+            <h3>Postulación docente — IESTP Chupa</h3>
+            <p>Participación en el proceso de Contrato Docente 2026 en la especialidad de Tecnología de Computación e Informática, con registro de evaluación curricular en la DRE Puno.</p>
+          </article>
+          <article class="timeline-item">
+            <div class="date">2024 – 2025</div>
+            <h3>Docente — IESTP Santa Lucía</h3>
+            <p>Registro como docente institucional, contribuyendo a la formación de estudiantes en el ámbito de la educación superior tecnológica.</p>
+          </article>
+          <article class="timeline-item">
+            <div class="date">Desarrollo continuo</div>
+            <h3>Gestión, capacitación e innovación</h3>
+            <p>Interés y participación en actividades de formación, diseño curricular, gestión académica, tecnologías educativas e investigación aplicada.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="especialidades">
+      <div class="container">
+        <p class="eyebrow">Conocimientos</p>
+        <h2 class="section-title">Áreas de especialización</h2>
+        <p class="section-intro">Competencias orientadas a la enseñanza, la infraestructura tecnológica y la solución práctica de necesidades informáticas.</p>
+        <div class="grid grid-2">
+          <div class="skill-group">
+            <h3>Tecnologías y herramientas</h3>
+            <ul class="tag-list">
+              <li class="tag">SQL</li><li class="tag">Bases de datos</li><li class="tag">SQLite</li><li class="tag">Redes TCP/IP</li><li class="tag">Ethernet</li><li class="tag">Cableado estructurado</li><li class="tag">Sistemas operativos</li><li class="tag">Ofimática</li>
+            </ul>
+          </div>
+          <div class="skill-group">
+            <h3>Competencias profesionales</h3>
+            <div class="meter"><div class="meter-label"><span>Docencia y planificación</span><span>Avanzado</span></div><div class="bar"><span style="width:92%"></span></div></div>
+            <div class="meter"><div class="meter-label"><span>Bases de datos y SQL</span><span>Avanzado</span></div><div class="bar"><span style="width:88%"></span></div></div>
+            <div class="meter"><div class="meter-label"><span>Redes e infraestructura</span><span>Intermedio–avanzado</span></div><div class="bar"><span style="width:82%"></span></div></div>
+            <div class="meter"><div class="meter-label"><span>Diseño de materiales educativos</span><span>Avanzado</span></div><div class="bar"><span style="width:90%"></span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <div class="container">
+        <p class="eyebrow">Portafolio</p>
+        <h2 class="section-title">Líneas de trabajo</h2>
+        <p class="section-intro">Espacio para mostrar proyectos, materiales y recursos que evidencien tu aporte profesional.</p>
+        <div class="grid grid-3">
+          <article class="card project">
+            <h3>Materiales para bases de datos</h3>
+            <p>Sesiones, prácticas, evaluaciones y ejercicios de SQL para la enseñanza de bases de datos relacionales.</p>
+            <a href="#contacto">Solicitar información →</a>
+          </article>
+          <article class="card project">
+            <h3>Diseño de redes</h3>
+            <p>Propuestas de topologías, conectividad, cableado estructurado y documentación técnica para entornos educativos.</p>
+            <a href="#contacto">Solicitar información →</a>
+          </article>
+          <article class="card project">
+            <h3>Innovación educativa</h3>
+            <p>Recursos digitales, presentaciones, contenidos visuales y estrategias para mejorar la experiencia de aprendizaje.</p>
+            <a href="#contacto">Solicitar información →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="preguntas">
+      <div class="container">
+        <p class="eyebrow">Más información</p>
+        <h2 class="section-title">Enfoque profesional</h2>
+        <details open>
+          <summary>¿Cuál es mi propósito como docente?</summary>
+          <p>Contribuir a una educación tecnológica pertinente, práctica y accesible, que permita a los estudiantes desarrollar competencias para enfrentar retos profesionales reales.</p>
+        </details>
+        <details>
+          <summary>¿En qué temas puedo colaborar?</summary>
+          <p>Docencia de tecnologías de información, bases de datos, SQL, redes, elaboración de materiales académicos, actividades de difusión y documentación técnica.</p>
+        </details>
+        <details>
+          <summary>¿Cómo fortalecer este portafolio?</summary>
+          <p>Agrega certificados, evidencias de proyectos, enlaces a repositorios, publicaciones, ponencias, fotografías institucionales y una URL de LinkedIn o GitHub cuando estén disponibles.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <div class="contact">
+          <p class="eyebrow">Contacto</p>
+          <h2 class="section-title">Construyamos soluciones educativas y tecnológicas</h2>
+          <p class="section-intro" style="margin-left:auto;margin-right:auto">Para colaboraciones académicas, proyectos tecnológicos o consultas profesionales, escríbeme.</p>
+          <a class="button primary" href="mailto:charly@tecnologicosantalucia.edu.pe">charly@tecnologicosantalucia.edu.pe <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Yoverti Charly Suca Zela · Portafolio profesional</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
